@@ -144,7 +144,11 @@ class DatabaseService {
     `;
 
     try {
-      const result = await this.db.executeSql(updateQuery, [name, calories, id]);
+      const result = await this.db.executeSql(updateQuery, [
+        name,
+        calories,
+        id,
+      ]);
       console.log('Item updated successfully');
       return result;
     } catch (error) {
@@ -176,7 +180,7 @@ class DatabaseService {
    * Delete all items
    */
   async deleteAllItems() {
-    const deleteQuery = `DELETE FROM food_items;`;
+    const deleteQuery = 'DELETE FROM food_items;';
 
     try {
       const result = await this.db.executeSql(deleteQuery);

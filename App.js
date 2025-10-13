@@ -26,6 +26,7 @@ const App = () => {
 
   useEffect(() => {
     initializeDatabase();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const initializeDatabase = async () => {
@@ -66,7 +67,7 @@ const App = () => {
     }
   };
 
-  const deleteItem = async (id) => {
+  const deleteItem = async id => {
     try {
       await DatabaseService.deleteItem(id);
       loadItems();
@@ -117,9 +118,7 @@ const App = () => {
           </View>
 
           <View style={styles.itemsContainer}>
-            <Text style={styles.itemsTitle}>
-              Stored Items ({items.length})
-            </Text>
+            <Text style={styles.itemsTitle}>Stored Items ({items.length})</Text>
             {items.length === 0 ? (
               <Text style={styles.emptyText}>No items stored yet</Text>
             ) : (
